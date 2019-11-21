@@ -22,4 +22,34 @@
  }
         
  ②   logwatch 日志分析工具
+
+journalctl查看所有日志
+ -k 查看内核日志
+ -b 查看系统本次启动的日志
+ journalctl -b -0：查看系统本次启动的日志
+ journalctl -b -1：查看上一次启动的日子还
+ journalctl -n ：显示尾部的最新10行日志
+ journalctl -f：实时滚动查看最新日志
+ journalctl --since: 产看指定时间的日志
+ # journalctl --since 09：00 --until "1 hour ago"
+-o json  
+
+journalctl -p err -b 
+emerg #紧急事件
+alert #警报
+crit # 攻击
+err # 错误事件
+waring #警告
+notice # 注意
+info # 信息
+debug #调试
+
+日志管理集群
+ ELK 
     
+ rsyslog
+yum -y install rsyslog-mysql mysql
+
+脚本
+shell脚本和python脚本
+
