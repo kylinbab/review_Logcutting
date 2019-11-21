@@ -1,0 +1,25 @@
+# logcutting
+日志切割
+命令
+①logrotate
+        logrotate程序是一个日志文件管理工具。用于分割日志文件，删除旧的日志文件，并创建新的日志文件，起到转储作用，可以节省磁盘空间
+        logrotate -d --debug： debug测试，测试配置文件是否有错误。
+        logrotate -f --force ：强制转储
+        logrotate -m --mail--command：压缩日志后，发送日志到指定邮箱
+        logrotate -s --state=statefile ：使用指定的状态文件
+        logrotate -v --verbose ：显示转储过程
+        
+ #logrotate_cutting
+ /data/nginx/*.log
+ {
+ no compress # 不做gzip压缩处理
+ rotate 7 # 
+ daily #指定转储周期
+ create  # 建立新的日志文件
+ ifempty # 即使日志为空文件也做轮转
+ copytruncate     # 用于还在打开中的日志文件，把当前日志备份并截断，是先拷贝再清空的方式，拷贝和清空之间可能有一个时间差，可能会丢失部分日志数据
+ nocopytruncreae  # 备份日志文件不过不截断
+ }
+        
+ ②   logwatch 日志分析工具
+    
